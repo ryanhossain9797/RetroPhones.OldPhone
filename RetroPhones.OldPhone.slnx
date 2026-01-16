@@ -1,0 +1,4 @@
+<Solution>
+    <Project Path="RetroPhones.OldPhone.Core/RetroPhones.OldPhone.Core.csproj" />
+    <Project Path="RetroPhones.OldPhone.Tests/RetroPhones.OldPhone.Tests.csproj" />
+</Solution>
