@@ -9,16 +9,17 @@ Most of them have a planning mode these days, I would use that to see their plan
 `Prompt:`
 ```
 You are an engineer building a dotnet project from scratch in C#.
-Your project is a library that simulates the keypad of old phones with letters, numbers, and special character buttons.
+Your project is a library that simulates the keypad of old phones with numbers and special controls like backspace and send.
 It will take in an input string like "227*#" and return the corresponding output "B".
 
 The full requirements are in TASK.md (or I could paste the requirements in the prompt if not in an IDE context)
 
 ToDo:
--  Split the logic into a `Tokenizer` (lexical validation) and an `Interpreter` (stateful message construction).
+-  Make two projects Core and Tests
+-  Split the logic into a `Tokenizer` (lexical validation) and an `Interpreter` (message construction).
 -  The Tokenizer should convert the input characters into input tokens.
 -  The Interpreter should take the input tokens and convert them into the output string.
--  Tokens should be modeled as below
+-  Tokens should be modeled as below, Add the Pause as a ControlKeyToken too
     internal abstract record InputToken;
     internal record DigitToken(Digit Digit) : InputToken;
     internal record ControlKeyToken(ControlKey ControlKey) : InputToken;
@@ -31,13 +32,14 @@ ToDo:
 -  Make sure to implement character cycling like a real phone.
 -  Handle numerical digits (0-9) and basic punctuation on key '1' by including them at the end of character cycles. Research real phones if needed.
 -  Use modern C# features like records for the Token cases, switch expressions etc.
--  Make sure to fail on invalid characters on Tokenizers, but input sequence validity like # at the end should be handled by the interpreter.
+-  Make sure to fail on invalid characters on Tokenizer, but input sequence validity like # at the end should be handled by the Interpreter as that is not the Tokenizer's responsibility.
 -  Add tests
    - High-level Integration tests for various cases, especially the examples in the task.
    - Granular Unit tests for the Tokenizer and Interpreter.
    - Edge cases like multiple backspaces, redundant backspaces, invalid input strings and anything else you can think of.
--  All internal logic should be private with XML docs. The entry point should be `PhonePad.OldPhonePad(string)` like the task dictates.
+-  All internal logic should be private with XML docs. The entry point should be `OldPhone.OldPhonePad(string)` like the task dictates.
 -  Try to follow best practices for C# code. But keep in mind that this is a very small library and avoid turning it into Enterprise bloat.
+-  Make sure all tests pass.
 ```
 
 That should likely get me to a working solution as the AI will try to run the tests and fix as needed.
