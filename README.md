@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a library that converts sequences of phone keypad presses (digits `0-9`, backspace `*` and send `#`) into their intended text messages. Pressing the same button multiple times cycles through its assigned characters. A delay will commit the current character.
+This project is a static library that converts sequences of phone keypad presses (digits `0-9`, backspace `*` and send `#`) into their intended text messages. Pressing the same button multiple times cycles through its assigned characters. A delay will commit the current character.
 
 ### Key Features
 - Realistic Multi-tap: Includes support for characters, digits, punctuation.
@@ -38,6 +38,18 @@ dotnet test
 
 ---
 
+## Console App
+
+A simple console application is included to demonstrate the library's functionality. It provides a REPL (Read-Eval-Print Loop) to interact with the `OldPhonePad` converter.
+
+### How to Run
+From the root directory:
+```bash
+dotnet run --project RetroPhones.OldPhone.App
+```
+
+---
+
 ## Engineering Standards
 
 - Encapsulation: Core logic and models are marked as `internal` to prevent leaking implementation details to library consumers.
@@ -47,8 +59,15 @@ dotnet test
 
 ---
 
-## Design Decisions
-- Why model characters and other tokens as Enums at all?
+# Design Decisions
+- Why are no Interfaces provided or any DI used?
+
+  Based on the nature of the task and the static entrypoint in the Task Prompt,
+  It's rational to assume this is a static library, so providing an interface felt redundant.
+
+  Similarly the console app is meant to minimally demonstrate usage and does not rely on any DI.
+
+- Why model Buttons/Characters as Enums?
   
   It may seem a little overkill for the simple use case, but the code was written assuming it's part of a larger library
   If so, having Type safe representations of the Phone's KeyPad (InputToken), and it's subcategories like Digit and ControlKey

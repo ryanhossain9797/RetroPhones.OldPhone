@@ -16,6 +16,7 @@ The full requirements are in TASK.md (or I could paste the requirements in the p
 
 ToDo:
 -  Make two projects Core and Tests
+-  Add a console app project that uses the library in a loop to test it manually.
 -  Split the logic into a `Tokenizer` (lexical validation) and an `Interpreter` (message construction).
 -  The Tokenizer should convert the input characters into input tokens.
 -  The Interpreter should take the input tokens and convert them into the output string.
