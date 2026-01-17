@@ -21,6 +21,17 @@ Built with compiler like terminology:
 
 ---
 
+## Building
+
+This project is built with the latest .net 10 SDK.
+
+From the root directory:
+```bash
+dotnet build
+```
+
+---
+
 ## Testing
 
 The project includes a test suite using xUnit:
@@ -30,7 +41,6 @@ The project includes a test suite using xUnit:
   - `TokenizerTests`: Validates lexical rules and individual character parsing.
   - `InterpreterTests`: Validates complex logic like character cycling, redundant backspaces, and structural requirements.
 
-### How to Run Tests
 From the root directory:
 ```bash
 dotnet test
