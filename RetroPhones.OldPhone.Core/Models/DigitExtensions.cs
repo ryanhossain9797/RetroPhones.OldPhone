@@ -11,7 +11,7 @@ internal static class DigitExtensions
     /// The canonical mapping of digits to their respective character sequences.
     /// sequences include digits at the end to support realistic multi-tap behavior.
     /// </summary>
-    public static readonly FrozenDictionary<Digit, char[]> CharsByDigit = new Dictionary<Digit, char[]>
+    private static readonly FrozenDictionary<Digit, char[]> CharsByDigit = new Dictionary<Digit, char[]>
     {
         { Digit.One,   ['&', '\'', '(', ')', '.', ',', '?', '!', '1'] },
         { Digit.Two,   ['A', 'B', 'C', '2'] },
@@ -31,7 +31,7 @@ internal static class DigitExtensions
     /// <param name="digit">The keypad digit.</param>
     /// <param name="count">The number of times the digit was consecutively pressed.</param>
     /// <returns>The resolved character.</returns>
-    public static char ToKeypadChar(this Digit digit, int count)
+    internal static char ToKeypadChar(this Digit digit, int count)
     {
         var charsOfDigit = CharsByDigit[digit];
         return charsOfDigit[(count - 1) % charsOfDigit.Length];

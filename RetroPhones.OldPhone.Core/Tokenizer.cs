@@ -19,12 +19,10 @@ internal static class Tokenizer
             throw new ArgumentException("Input cannot be null.", nameof(input));
         }
 
-        foreach (char c in input)
+        if (input.Any(c => !char.IsDigit(c) && c != '*' && c != '#' && c != ' '))
         {
-            if (!char.IsDigit(c) && c != '*' && c != '#' && c != ' ')
-            {
-                throw new ArgumentException($"Input contains invalid character: {c}", nameof(input));
-            }
+            throw new ArgumentException("Input contains invalid character.", nameof(input));
+
         }
     }
 
@@ -52,11 +50,7 @@ internal static class Tokenizer
     internal static List<InputToken> Tokenize(string input)
     {
         Validate(input);
-        var tokens = new List<InputToken>(input.Length);
-        foreach (char c in input)
-        {
-            tokens.Add(ParseToToken(c));
-        }
-        return tokens;
+
+        return [.. input.Select(ParseToToken)];
     }
 }
