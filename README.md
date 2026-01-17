@@ -20,8 +20,11 @@ Examples:
 - "22 2#" -> "BA"
 - "22*2#" -> "A"
 
+An empty space `' '` represents a delay, `*` is backspace and `#` is send and must always be at the end.
+
 ```csharp
 var result = OldPhone.OldPhonePad("222#");
+Console.WriteLine(result); // "C"
 ```
 
 ---

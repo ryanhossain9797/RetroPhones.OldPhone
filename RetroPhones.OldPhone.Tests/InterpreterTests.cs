@@ -57,6 +57,13 @@ public class InterpreterTests
     }
 
     [Fact]
+    public void Interpret_HandlesRedundantDelays()
+    {
+        Assert.Equal("", Interpreter.Interpret(Tokenizer.Tokenize("    #")));
+        Assert.Equal("", Interpreter.Interpret(Tokenizer.Tokenize("  * #")));
+    }
+
+    [Fact]
     public void Interpret_ThrowsException_IfNoSendToken()
     {
         var tokens = Tokenizer.Tokenize("2");
