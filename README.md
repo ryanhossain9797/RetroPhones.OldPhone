@@ -11,6 +11,21 @@ This project is a static library that converts sequences of phone keypad presses
 
 ---
 
+## Usage
+
+The input is provided as a sequence of button presses.
+
+Examples:
+- "222#" -> "C"
+- "22 2#" -> "BA"
+- "22*2#" -> "A"
+
+```csharp
+var result = OldPhone.OldPhonePad("222#");
+```
+
+---
+
 ## Architecture
 
 Built with compiler like terminology:
