@@ -50,20 +50,20 @@ internal static class Interpreter
         {
             switch (token)
             {
-                case DigitToken digitToken:
-                    if (current != null && digitToken.Digit == current.Digit)
+                case DigitToken(Digit digit):
+                    if (current != null && digit == current.Digit)
                     {
                         current = current with { Count = current.Count + 1 };
                     }
                     else
                     {
                         Commit();
-                        current = new DigitAndCount(digitToken.Digit, 1);
+                        current = new DigitAndCount(digit, 1);
                     }
                     break;
 
-                case ControlKeyToken controlKeyToken:
-                    switch (controlKeyToken.ControlKey)
+                case ControlKeyToken(ControlKey controlKey):
+                    switch (controlKey)
                     {
                         case ControlKey.Delay:
                             Commit();
