@@ -11,7 +11,7 @@ public static class OldPhone
     public static string OldPhonePad(string input)
     {
         var tokens = Tokenizer.Tokenize(input);
-        var result = Interpreter.Interpret(tokens);
+        var result = TextInterpreter.Interpret(tokens);
 
         return result;
     }
