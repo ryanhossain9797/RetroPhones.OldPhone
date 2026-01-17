@@ -34,8 +34,9 @@ Console.WriteLine(result); // "C"
 Built with compiler like terminology:
 
 1.  Tokenizer: performs lexical analysis, converting the raw `string` into a sequence of `InputToken` objects (Digits or Special characters). 
-2.  Interpreter: performs syntactic analysis. It consolidates repeating digit tokens into character assignments, handles the "pause" (space) behavior, and applies backspace operations using a stack.
+2.  TextInterpreter: performs syntactic analysis. It consolidates repeating digit tokens into character assignments, handles the "pause" (space) behavior, and applies backspace operations using a stack.
 3.  Models/DigitMapping: Centralizes the keypad layout. It utilizes `FrozenDictionary` for high-performance, immutable character lookups.
+4. Tokenizer purely focuses on processing the input string into tokens, TextInterpreter perceives the tokens as text input. The library may be extended with other kinds of interpreters
 
 ---
 

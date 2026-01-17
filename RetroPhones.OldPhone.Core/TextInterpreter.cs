@@ -6,7 +6,7 @@ namespace RetroPhones.OldPhone.Core;
 /// <summary>
 /// Interprets sequences of keypad inputs into final texts.
 /// </summary>
-internal static class Interpreter
+internal static class TextInterpreter
 {
     /// <summary>
     /// Processes a list of tokens and maps them to their final string representation.
