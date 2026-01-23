@@ -20,14 +20,14 @@ ToDo:
 -  Split the logic into a `Tokenizer` (lexical validation) and an `Interpreter` (message construction).
 -  The Tokenizer should convert the input characters into input tokens.
 -  The Interpreter should take the input tokens and convert them into the output string.
--  Tokens should be modeled as below, Add the Pause as a ControlKeyToken too
+-  Tokens should be modeled as below, Add the Delay as a ControlKeyToken too
     internal abstract record InputToken;
     internal record DigitToken(Digit Digit) : InputToken;
     internal record ControlKeyToken(ControlKey ControlKey) : InputToken;
 
-   Digit can be Zero -> Nine and ControlKey can be Backspace, Pause, or Pound.
+   Digit can be Zero -> Nine and ControlKey can be Backspace, Delay, or Send.
 -  Interpreter should be further broken down into two steps
-    - A method that takes the input sequence, handles Pause and Backspace, and returns a sequence of DigitAndCount tuples.
+    - A method that takes the input sequence, handles Delay and Backspace, and returns a sequence of DigitAndCount tuples.
     - A method that takes the sequence of DigitAndCount tuples and returns the output string.
 -  Use a Stack-based approach in the Interpreter to handle backspacing (`*`) correctly across character boundaries.
 -  Make sure to implement character cycling like a real phone.

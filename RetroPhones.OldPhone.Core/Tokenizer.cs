@@ -22,7 +22,6 @@ internal static class Tokenizer
         if (input.Any(c => !char.IsDigit(c) && c != '*' && c != '#' && c != ' '))
         {
             throw new ArgumentException("Input contains invalid character.", nameof(input));
-
         }
     }
 
