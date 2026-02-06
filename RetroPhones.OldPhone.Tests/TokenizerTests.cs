@@ -9,17 +9,16 @@ public class TokenizerTests
     public void Tokenize_ParsesDigitsCorrecty()
     {
         var tokens = Tokenizer.Tokenize("2#");
-        Assert.IsType<DigitToken>(tokens[0]);
-        Assert.Equal(Digit.Two, ((DigitToken)tokens[0]).Digit);
+        Assert.Equal(Digit.Two, ((InputToken.DigitToken)tokens[0]).Digit);
     }
 
     [Fact]
     public void Tokenize_ParsesControlKeysCorrectly()
     {
         var tokens = Tokenizer.Tokenize("* #");
-        Assert.Equal(ControlKey.Backspace, ((ControlKeyToken)tokens[0]).ControlKey);
-        Assert.Equal(ControlKey.Delay, ((ControlKeyToken)tokens[1]).ControlKey);
-        Assert.Equal(ControlKey.Send, ((ControlKeyToken)tokens[2]).ControlKey);
+        Assert.Equal(ControlKey.Backspace, ((InputToken.ControlKeyToken)tokens[0]).ControlKey);
+        Assert.Equal(ControlKey.Delay, ((InputToken.ControlKeyToken)tokens[1]).ControlKey);
+        Assert.Equal(ControlKey.Send, ((InputToken.ControlKeyToken)tokens[2]).ControlKey);
     }
 
     [Fact]
